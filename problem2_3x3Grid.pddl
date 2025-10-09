@@ -3,7 +3,7 @@
 
   (:objects
     a1 a2 a3 a4 a5 a6 a7 a8 a9 - area
-    carA carB carC - minecar
+    carA - minecar
   )
 
   ;; initial state
@@ -25,43 +25,54 @@
     (adjacent a6 a9) (adjacent a9 a6)
 
     ;; robot start
-    (robot-at a7)
+    (robot-at a1)
 
     ;; minecars initial positions
-    (minecar-at carA a1)
-    (minecar-at carB a6)
-    (minecar-at carC a9)
+    (minecar-at carA a9)
 
     ;; empty bookkeeping: any cell with no minecar must be declared empty
-    (empty a2) (empty a3) (empty a4) (empty a5) (empty a7) (empty a8)
+    (empty a1)
+    (empty a2) 
+    (empty a3) 
+    (empty a4) 
+    (empty a5)
+    (empty a6)  
+    (empty a7) 
+    (empty a8)
 
-    ;; minerals (some cells have minerals)
+    ;; minerals (some cells have minerals
+    (minerals a1)
     (minerals a2)
     (minerals a3)
     (minerals a4)
+    (minerals a5)
+    (minerals a6)
+    (minerals a7)
+    (minerals a8)
+    (minerals a9)
 
-    ;; others are depleted/without minerals (you may add depleted facts if needed)
+    ; No depleted cells
+    
+  )
+
+  ;; goal: all minerals collected (depleted) and specific final minecar positions
+  (:goal (and
+
+    ; Recolected materials
     (depleted a1)
+    (depleted a2)
+    (depleted a3)
+    (depleted a4)
     (depleted a5)
     (depleted a6)
     (depleted a7)
     (depleted a8)
     (depleted a9)
     
-  )
-
-  ;; goal: all minerals collected (depleted) and specific final minecar positions
-  (:goal (and
-    (depleted a2)
-    (depleted a3)
-    (depleted a4)
-
     ;; final positions for minecars (example)
-    (minecar-at carA a2)
-    (minecar-at carB a3)
-    (minecar-at carC a7)
+    (minecar-at carA a1)
 
     ;; final position for robot
-    (robot-at a4)
+    (robot-at a9)
   ))
 )
