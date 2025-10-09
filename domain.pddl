@@ -19,7 +19,7 @@
     :precondition (and
       (robot-at ?from)
       (adjacent ?from ?to)
-      (empty ?to)                            ;; cannot step into a minecar
+      ;(empty ?to)                            ;; cannot step into a minecar
     )
     :effect (and
       (not (robot-at ?from))
@@ -33,6 +33,7 @@
     :precondition (and
       (robot-at ?a)
       (minerals ?a)
+      (empty ?a)                               ;; not minecart into to collect
     )
     :effect (and
       (not (minerals ?a))
@@ -46,18 +47,17 @@
   ;; Effects: robot moves into the minecar's old cell, minecar moves into the target cell;
   ;;          minecar's old cell becomes empty, the target cell becomes non-empty.
   (:action push
-    :parameters (?rpos - area ?m - minecar ?mcpos - area ?target - area)
+    :parameters (?m - minecar ?mcpos - area ?target - area)
     :precondition (and
-      (robot-at ?rpos)
+      (robot-at ?mcpos)
       (minecar-at ?m ?mcpos)
-      (adjacent ?rpos ?mcpos)                ;; robot is adjacent to minecar
       (adjacent ?mcpos ?target)              ;; target is adjacent to minecar cell
       (empty ?target)                         ;; target must be free of minecars
     )
     :effect (and
       ;; robot moves into minecar's old position
-      (not (robot-at ?rpos))
-      (robot-at ?mcpos)
+      ;(not (robot-at ?rpos))
+      ;(robot-at ?mcpos)
 
       ;; minecar moves from mcpos to target
       (not (minecar-at ?m ?mcpos))

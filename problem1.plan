@@ -1,0 +1,24 @@
+;;!domain: minerob
+;;!problem: minerob-first-example-3x3
+
+0.00000: (move a7 a8)
+0.00100: (move a8 a9)
+0.00200: (push carc a9 a8)
+0.00300: (move a9 a8)
+0.00400: (push carc a8 a7)
+0.00500: (move a8 a9)
+0.00600: (move a9 a6)
+0.00700: (move a6 a3)
+0.00800: (collect a3)
+0.00900: (move a3 a6)
+0.01000: (push carb a6 a3)
+0.01100: (move a6 a3)
+0.01200: (move a3 a2)
+0.01300: (collect a2)
+0.01400: (move a2 a1)
+0.01500: (push cara a1 a2)
+0.01600: (move a1 a4)
+0.01700: (collect a4)
+
+; Makespan: 0.017000000000000008
+; Metric: 0.017000000000000008
