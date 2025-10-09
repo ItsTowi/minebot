@@ -1,4 +1,4 @@
-(define (problem minerob-first-example-3x3)
+(define (problem minerob-second-example-3x3)
   (:domain minerob)
 
   (:objects
