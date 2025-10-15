@@ -1,5 +1,5 @@
 (define (domain minerob)
-  (:requirements :strips :typing :negative-preconditions :equality :adl)
+  (:requirements :strips :typing :negative-preconditions)
 
   (:types area minecar)
 
